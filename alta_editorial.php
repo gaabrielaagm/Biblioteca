@@ -1,6 +1,7 @@
 <?php
 include 'conexion.php';
 
+
 //obtener lo datos para tabla editorial
 $nom_edit=$_POST["nom_editorial"];
 $anio=$_POST["anio_ed"];
