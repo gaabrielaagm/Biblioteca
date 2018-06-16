@@ -3,15 +3,17 @@
 <html>
 <head>
 
-
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"> 
   	<title>Altas de Libros</title>
   	<meta charset="utf-8">
   	<meta name="viewport" content="width=device-width, initial-scale=1">
  
  	<!--bootstrap de w3schools:  https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_form_basic&stacked=h -->
-  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <!--	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+
+
 
 	<style type="text/css">
 		
@@ -23,25 +25,49 @@
 
 </head>
 <body>
+
+	<script src="js/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+
 <center>
 <div class="container">
   <center><h1>Registrar un libro</h1></center>
 
-  <form name="responder" action="" method="post" onsubmit=""> 
+  <form name="responder" action="registrar_libro_nuevo.php" method="post"> 
 
+
+<!--
 	<div class="form-group">
 		Id del libro: <input type="text" name="id_libro" required size="15px" id="id_libro" class="form-control"> 
 	</div>	
-
+-->
 	<div class="form-group">
         Id de la editorial : <input type="text" name="id_editorial" required size="15px" id="id_editorial" class="form-control"> 
 
 	</div>
 
+
+	<div class="form-group">
+		Tema:  <br>
+	<select class="form-control" name="temas">
+	  <option value="000">Generalidades</option>
+	  <option value="100">Filosofía y Psicología</option>
+	  <option value="200">Religión</option>
+	  <option value="300">Ciencias Sociales</option>
+	  <option value="400">Lenguas</option>
+	  <option value="500">Matemáticas y Ciencias Naturales</option>
+	  <option value="600">Tecnología y Ciencias Aplicadas</option>
+	  <option value="700">Artes</option> 
+	  <option value="800">Literatura</option>
+	  <option value="900">Historia y Geografía</option>
+	</select>
+</div>	
+
+<!--
 	<div class="form-group">
         Id del tema:  <input type="text" name="id_tema" required size="15px" id="id_tema" class="form-control"> 
 	</div>
-	
+-->	
 	<div class="form-group">
         Id de la asignatura: <input type="text" name="id_asignatura" required size="15px" id="id_asignatura" class="form-control"> 
 	</div>
@@ -71,7 +97,7 @@
         ISBN: <input type="text" name="isbn" required size="15px" id="isbn" class="form-control"> 
 	</div>
 
-        <input type="submit" id="enviar" name="enviar" value="Registrar"  class="btn btn-default"/>  
+        <input type="submit" id="enviar" name="enviar" value="Registrar"  class="btn btn-primary"/>  
     </form> 
 
 
