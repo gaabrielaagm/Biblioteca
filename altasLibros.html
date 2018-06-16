@@ -3,15 +3,17 @@
 <html>
 <head>
 
-
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"> 
   	<title>Altas de Libros</title>
   	<meta charset="utf-8">
   	<meta name="viewport" content="width=device-width, initial-scale=1">
  
  	<!--bootstrap de w3schools:  https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_form_basic&stacked=h -->
-  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <!--	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+
+
 
 	<style type="text/css">
 		
@@ -23,6 +25,10 @@
 
 </head>
 <body>
+
+	<script src="js/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+
 <center>
 <div class="container">
   <center><h1>Registrar un libro</h1></center>
@@ -38,10 +44,28 @@
 
 	</div>
 
+
+	<div class="form-group">
+	Tema:  <br>
+	<select class="form-control">
+	  <option value="generalidades">Generalidades</option>
+	  <option value="filosofia">Filosofía y Psicología</option>
+	  <option value="religion">Religión</option>
+	  <option value="ciencias">Ciencias Sociales</option>
+	  <option value="lenguas">Lenguas</option>
+	  <option value="matematicas">Matemáticas y Ciencias Naturales</option>
+	  <option value="tecnologia">Tecnología y Ciencias Aplicadas</option>
+	  <option value="artes">Artes</option> 
+	  <option value="literatura">Literatura</option>
+	  <option value="historia">Historia y Geografía</option>
+	</select>
+</div>	
+
+<!--
 	<div class="form-group">
         Id del tema:  <input type="text" name="id_tema" required size="15px" id="id_tema" class="form-control"> 
 	</div>
-	
+-->	
 	<div class="form-group">
         Id de la asignatura: <input type="text" name="id_asignatura" required size="15px" id="id_asignatura" class="form-control"> 
 	</div>
