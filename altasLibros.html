@@ -33,12 +33,14 @@
 <div class="container">
   <center><h1>Registrar un libro</h1></center>
 
-  <form name="responder" action="registar_libro_nuevo.php" method="post"> 
+  <form name="responder" action="registrar_libro_nuevo.php" method="post"> 
 
+
+<!--
 	<div class="form-group">
 		Id del libro: <input type="text" name="id_libro" required size="15px" id="id_libro" class="form-control"> 
 	</div>	
-
+-->
 	<div class="form-group">
         Id de la editorial : <input type="text" name="id_editorial" required size="15px" id="id_editorial" class="form-control"> 
 
@@ -47,17 +49,17 @@
 
 	<div class="form-group">
 		Tema:  <br>
-	<select class="form-control">
-	  <option value="generalidades">Generalidades</option>
-	  <option value="filosofia">Filosofía y Psicología</option>
-	  <option value="religion">Religión</option>
-	  <option value="ciencias">Ciencias Sociales</option>
-	  <option value="lenguas">Lenguas</option>
-	  <option value="matematicas">Matemáticas y Ciencias Naturales</option>
-	  <option value="tecnologia">Tecnología y Ciencias Aplicadas</option>
-	  <option value="artes">Artes</option> 
-	  <option value="literatura">Literatura</option>
-	  <option value="historia">Historia y Geografía</option>
+	<select class="form-control" name="temas">
+	  <option value="000">Generalidades</option>
+	  <option value="100">Filosofía y Psicología</option>
+	  <option value="200">Religión</option>
+	  <option value="300">Ciencias Sociales</option>
+	  <option value="400">Lenguas</option>
+	  <option value="500">Matemáticas y Ciencias Naturales</option>
+	  <option value="600">Tecnología y Ciencias Aplicadas</option>
+	  <option value="700">Artes</option> 
+	  <option value="800">Literatura</option>
+	  <option value="900">Historia y Geografía</option>
 	</select>
 </div>	
 
