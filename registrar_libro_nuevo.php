@@ -19,10 +19,13 @@ $issn=$_POST["issn"]; //issn
 
 $isbn=$_POST["isbn"];// isbn
 
+$temas=$_POST["temas"];  //temas
+echo ($idLibro);
+
 
 //hacemos la consulta
 
-$verificar_libro = mysqli_query($conexion, "SELECT * FROM libro WHERE id_libro = '$idLibro'");
+$verificar_libro = mysqli_query($conexion, "SELECT * FROM libro WHERE Id_libro = '$idLibro'");
 
 if(mysqli_num_rows($verificar_libro)>0){
 	echo '<script>
@@ -30,22 +33,22 @@ if(mysqli_num_rows($verificar_libro)>0){
 		  window.history.go(-1);
 		  </script>'; 
 }else{
-	
-	//si no insertamos los datos
 
-	$libro_insert="INSERT INTO libro(Id_libro,Id_editorial,Id_tema,Id_asignatura,Id_ubicacion,Nombre,Volumen,Edicion,ISSN,ISBN) VALUES ('$idLibro', '$idEditorial', '$idAsignatura', '$idUbicacion', '$nombre', '$volumen', '$edicion', '$issn', '$isbn')";
+	//si no insertamos los datos; los numeros van sin comillas
+
+	$libro_insert="INSERT INTO libro(Id_libro,Id_editorial,Id_tema,Id_asignatura,Id_ubicacion,Nombre,Volumen,Edicion,ISSN,ISBN) VALUES ($idLibro, $idEditorial,$temas, $idAsignatura, $idUbicacion, '$nombre', '$volumen', '$edicion', '$issn', '$isbn')";
 
 	$resultado=mysqli_query($conexion,$libro_insert); 
-	if (!$reultado) {
+	if (!$resultado) {
 		echo '<script>
 		  alert("Error al registrar en la BD");
-		 window.history.go(-1);
+		 
 		  </script>';
 	}else{
 		echo '<script>
 		  alert("El libro ha sido registrado"); 		   
 		  </script>';
-		header('Location: login.html');
+		
 	}
 
 }
