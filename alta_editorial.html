@@ -4,82 +4,90 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Editorial</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"> 
 </head>
 <body >
 
- <div class="container">
- 	<h1> ALTA EDITORIAL</h1>
- 	<form>
- 		<div class="form-group">
- 		<label class="control-label col-md-2">Nombre:</label> 
- 		<div class="col-md-10">
- 			<input type="text" class="form-control" name="editorial" placeholder="Nombre de editorial">
- 		</div>
- 		
- 	</div>
- 	
 
-	<div class="form-group">
- 		<label  class="control-label col-md-2">Año: </label>
- 		<div class="col-md-10">
- 			<input type="number" class="form-control" name="anio_ed" min="1900" max="2018" step="10" placeholder="2012">
- 		</div>
- 	</div>
- 	<br>
+ <div class="container">
+ 	<center><h1> ALTA EDITORIAL</h1></center>
+ 	<form action="alta_editorial.php" method="POST">
+	 	<div>
+	 		<div class="form-group">
+	 		<label class="control-label col-md-2">Nombre:</label> 
+	 		<div class="col-md-8">
+	 			<input type="text" class="form-control"  name="nom_editorial" placeholder="Nombre de editorial">
+	 		</div>
+	 		
+	 		</div>
+	 	
+		<br><br>
+		<div class="form-group">
+	 		<label  class="control-label col-md-2">Año: </label>
+	 		<div class="col-md-2">
+	 			<input type="number" class="form-control" name="anio_ed" min="1900" max="2018" step="10" placeholder="2012">
+	 		</div>
+	 	</div>
+	 	<br>
+	 	</div>
+ 		
  	<!--DIRECCION  -->
 	
 
-	<br>
-
-    <legend>Dirección</legend>
+	<br><br>
+	<div>
+		<legend>Dirección</legend>
 
  	<div class="form-group">
  		<label  class="control-label col-md-2">País: </label>
- 		<div class="col-md-10">
+ 		<div class="col-md-8">
  			<input type="text" class="form-control"  name="pais" placeholder="País">
  		</div>
  	</div>
- 	<br>
+ 	<br><br><br>
  	<div class="form-group">
  		<label  class="control-label col-md-2">Estado: </label>
- 		<div class="col-md-10">
+ 		<div class="col-md-8">
  			<input type="text" class="form-control"  name="estado" placeholder="Estado"> 
  		</div>
  	</div>
-	<br>
+	<br><br>
  	<div class="form-group">
  		<label  class="control-label col-md-2">Ciudad: </label>
- 		<div class="col-md-10">
+ 		<div class="col-md-8">
  			<input type="text" class="form-control" name="ciudad" placeholder="Ciudad">
  		</div>
  	</div>
  
- 	<br>
+ 	<br><br>
  	<div class="form-group">
  		<label  class="control-label col-md-2">Colonia: </label>
- 		<div class="col-md-10">
+ 		<div class="col-md-8">
  			<input type="text" class="form-control" name="colonia" placeholder="Colonia">
  		</div>
  	</div>
-	<br>
+	<br><br>
  	<div class="form-group">
  		<label  class="control-label col-md-2">Calle: </label>
- 		<div class="col-md-10">
+ 		<div class="col-md-8">
  			<input type="text" class="form-control" name="calle" placeholder="Calle">
  		</div>
  	</div>
- 	<br>
+ 	<br><br>
  	
  	<div class="form-group">
  		<label  class="control-label col-md-2">Código Postal: </label>
- 		<div class="col-md-10">
+ 		<div class="col-md-8">
  			<input type="number" class="form-control" name="cp"  placeholder="12345">
  		</div>
  	</div>
  	<br>
+ 	<br>
+	</div>
+
+    
  	<center>
- 		<input type="submit" class="btn btn-primary" value="enviar"  class=""> 
+ 		<input type="submit" class="btn btn-primary" onclick="" value="enviar"  class=""> 
  	</center>
 	 
  	</form>
@@ -88,6 +96,7 @@
  </div>
 	
 
-	
+	<script src="js/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
 </body>
 </html>
