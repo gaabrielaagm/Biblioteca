@@ -3,10 +3,10 @@ include 'conexion.php';
 //obtener datos
 //obtener datos 
 $id_usuario=$_POST["id_usuario"];
-echo "Usuario es:  "; echo $usuario; echo "<br>";
+//echo "Usuario es:  "; echo $usuario; echo "<br>";
 
 $clave=$_POST["clave"];
-echo "Contraseña es: "; echo $pass; echo "<br>";
+//echo "Contraseña es: "; echo $pass; echo "<br>";
 
 @session_start();
 
@@ -23,7 +23,7 @@ if (mysqli_num_rows($verificar_usuario)>0) {
 		 header('Location: altasLibros.html');
 	}else{
 		echo '<script>
-	  	alert("Contraseña no coincide");
+	  	alert("Clave no coincide");
 	  	window.history.go(-1);
 	  	</script>';
 	}
@@ -33,7 +33,7 @@ if (mysqli_num_rows($verificar_usuario)>0) {
 	
 }else{
 	echo '<script>
-		  alert("No registrado");
+		  alert("Usuario No Registrado");
 		   window.history.go(-1);
 		  </script>';
 }
