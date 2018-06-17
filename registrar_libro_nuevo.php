@@ -51,11 +51,49 @@ if(mysqli_num_rows($verificar_libro)>0){
 		$obtener_id_libro = "SELECT * FROM libro WHERE Id_tema='$idTema' AND Id_asignatura='$idAsignatura' AND Nombre='$nombre';";
 		$Obtener_usr = mysqli_query($conexion,$obtener_id_libro);
 		$row=mysqli_fetch_array($Obtener_usr);
-		$id=$row["Id_libro"];
+		$id=$row["Id"];
 
-		$insert_ejemplar = "INSERT INTO ejemplar (Id_libro,Prestados,Disponibles) VALUES ($id,0,$ejemplares);";
+		$id_alfanumerico=$idTema.$idAsignatura.'0'.$id;
+
+		if($idTema == '0'){
+			$id_alfanumerico=$id_alfanumerico.'G';
+		}
+		if($idTema == '1'){
+			$id_alfanumerico=$id_alfanumerico.'F';
+		}
+		if($idTema == '2'){
+			$id_alfanumerico=$id_alfanumerico.'R';
+		}
+		if($idTema == '3'){
+			$id_alfanumerico=$id_alfanumerico.'C';
+		}
+		if($idTema == '4'){
+			$id_alfanumerico=$id_alfanumerico.'LE';
+		}
+		if($idTema == '5'){
+			$id_alfanumerico=$id_alfanumerico.'M';
+		}
+		if($idTema == '6'){
+			$id_alfanumerico=$id_alfanumerico.'T';
+		}
+		if($idTema == '7'){
+			$id_alfanumerico=$id_alfanumerico.'A';
+		}
+		if($idTema == '8'){
+			$id_alfanumerico=$id_alfanumerico.'LI';
+		}
+		if($idTema == '9'){
+			$id_alfanumerico=$id_alfanumerico.'H';
+		}
+
+		$insert_ejemplar = "INSERT INTO ejemplar (Id_libro,Prestados,Disponibles) VALUES ('$id_alfanumerico',0,$ejemplares);";
 		$resultado = mysqli_query($conexion,$insert_ejemplar); 
-		if($resultado){
+		echo $insert_ejemplar;
+
+		$actualizar_libro = "UPDATE libro SET Id_libro='$id_alfanumerico' WHERE Id=$id;";
+		$resultado2 = mysqli_query($conexion,$actualizar_libro); 
+
+		if($resultado && $actualizar_libro){
 			echo '<script>
 			alert("El libro ha sido registrado"); 		   
 			</script>';
