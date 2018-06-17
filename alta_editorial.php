@@ -20,9 +20,6 @@ if (mysqli_num_rows($dir_dif)>0) {
 	//Obtenemos el ID de la direccion que se acaba de crear
 	$row=mysqli_fetch_array($dir_dif);
 	$id_direccion=$row["Id_direccion"];
-	echo '<script>
-	  alert("La direccion ya existe");
-	  </script>';
 
 }else{
 	//INSERTAR LA DIRECCION A LA BASE DE DATOS
@@ -30,14 +27,9 @@ if (mysqli_num_rows($dir_dif)>0) {
 
 	$res=mysqli_query($conexion,$insertar_dir);
 	if (!$res) {
-			echo '<script>
+		echo '<script>
 			  alert("Error al registrar Direccion");
 			  </script>';
-	}else{
-		echo '<script>
-		  alert("Registrada la direccion "); 		   
-		  </script>';
-			
 	}
 	//Obtenemos el ID de la direccion que se acaba de crear
 
