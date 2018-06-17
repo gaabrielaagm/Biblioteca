@@ -4,9 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"> 
     <title>Consultar Libro</title>
 </head>
 <body>
-    <h1>Consultar Libro</h1>
+    <br><br><br><br>
+    <div class="container">
+        <center><h1>Consultar Libro</h1></center>
+        <br><br>
+
+        <form action="" class="form-inline"> <!-- alinea todos los campos en una linea -->
+			<div class="form-group col-md-offset-3">
+                    <label for="baseBusqueda" class="control-label">Buscar por:</label>
+                    <select class="form-control" id="baseBusqueda">
+                      <option selected="selected">Titulo</option>
+                      <option>Tema</option>
+                      <option>Asignatura</option>
+                      <option>Autor</option>
+                      <option>ISSN</option>
+                      <option>ISBN</option>
+                    </select>
+            </div>
+
+			<div class="form-group">
+				<div class="form-group"> <!-- pone todo los input a lado de otro -->
+					<input class="form-control" id="busqueda" type="text" name="busqueda" placeholder="Escibre aquí" required>
+				</div>
+			</div>
+
+            <div class="form-group">
+                <button class="btn btn-primary">Enviar</button>
+            </div>
+		</form>
+    </div>
+    <script src="js/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
 </body>
 </html>
