@@ -17,31 +17,30 @@
 
 	<script type="text/javascript">
 
-		function habilitar() {
+		/*function habilitar() {
+
 
 		// el cero es id	
     	var x= document.getElementById("cero").selected; 
+    	var y = document.getElementById("uno").selected;
+    	
+
     	
     	if(x==true){
     		document.getElementById("nombre").disabled ="true";
+    		ban = false; 
     		
     	}
-
-
-
-
-    	var y = document.getElementById("uno").selected;
+    
 
     	//el uno es por nombre 
     	if(y==true){
     		document.getElementById("elid").disabled ="true";
-    		
-    	}
+
+    	}	
     
-	}
+	}*/
 		
-
-
 	</script>
 
 
@@ -66,25 +65,28 @@
 
   <form name="eliminar" action="eliminar_libro.php" method="post">
 
-	<div class="form-group">
+<!--	<div class="form-group">
 		Eliminar por:  <br>
 
-		<select id="box" name="temas" onchange="habilitar();">
+		<select id="box" name="temas">
 	 	<option value="0" id="cero">Por id</option>
 	  	<option value="1" id="uno">Por nombre</option>
 	 
 	</select>
 	</div>	
-
+-->
 
   	<div class="form-group">
     Nombre: <input type="text" name="nombre" size="15px" id="nombre" class="form-control"> 
     </div>
 
 
+<!--estaba en id  =nombre -->
+<!--
 	<div class="form-group">
     Id: <input type="text" name="id_libro"  size="15px" id="elid" class="form-control"> 
-    </div> <!--estaba en id  =nombre-->
+    </div> 
+ -->
 
     <input type="submit" id="enviar" name="enviar" value="Eliminar"  class="btn btn-danger" />  
 
