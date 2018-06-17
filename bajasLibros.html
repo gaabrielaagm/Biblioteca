@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"> 
+	<title>Bajas de Libros</title>
+
+	<style type="text/css">
+		
+		.form-control{
+			height:35px;  /*alto */
+			width: 300px;  /*ancho*/
+		}
+
+
+
+	</style>
+
+	<script type="text/javascript">
+
+		function habilitar() {
+
+		// el cero es id	
+    	var x= document.getElementById("cero").selected; 
+    	
+    	if(x==true){
+    		document.getElementById("nombre").disabled ="true";
+    		
+    	}
+
+
+
+
+    	var y = document.getElementById("uno").selected;
+
+    	//el uno es por nombre 
+    	if(y==true){
+    		document.getElementById("elid").disabled ="true";
+    		
+    	}
+    
+	}
+		
+
+
+	</script>
+
+
+</head>
+<body>
+ 
+
+ 	
+
+ 	
+ 
+	<script src="js/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+
+
+
+<center>
+<div class="container">
+
+  <center><h1>Eliminar un libro</h1></center>
+
+
+  <form name="eliminar" action="eliminar_libro.php" method="post">
+
+	<div class="form-group">
+		Eliminar por:  <br>
+
+		<select id="box" name="temas" onchange="habilitar();">
+	 	<option value="0" id="cero">Por id</option>
+	  	<option value="1" id="uno">Por nombre</option>
+	 
+	</select>
+	</div>	
+
+
+  	<div class="form-group">
+    Nombre: <input type="text" name="nombre" size="15px" id="nombre" class="form-control"> 
+    </div>
+
+
+	<div class="form-group">
+    Id: <input type="text" name="id_libro"  size="15px" id="elid" class="form-control"> 
+    </div> <!--estaba en id  =nombre-->
+
+    <input type="submit" id="enviar" name="enviar" value="Eliminar"  class="btn btn-danger" />  
+
+
+
+
+	
+
+
+
+  </form>
+
+</div>
+</center>  
+
+
+
+</body>
+</html>
