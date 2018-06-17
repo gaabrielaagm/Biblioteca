@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+	<meta charset="UTF-8">
+	<title>Prestamo</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"> 
+</head>
+<body ng-controller="Formularios">
+	<div class="container">
+
+		<nav class="nav nav-pills nav-justified" ">
+		  <a class="nav-link active" ng-click="ShowForm1()"  >Prestamo</a>
+		  <a class="nav-link" href="#" ng-click="ShowForm2()" >Devolución</a>
+		  
+		</nav>
+	
+		<!-- FORMULARIO 1 -->
+		<div ng-show="formVisibility1" class="wraper">
+		<h2>PRESTAMO</h2>
+			<form action="prestamos.php" method="POST">
+				<label>Id Usuario: </label><input type="number" min="0"  name="usuario" placeholder="1234" ><br>
+				<label>Id Libro: </label><input type="text" name="libro" placeholder="1234H"><br>
+				<input type="submit" name="Aceptar">
+			</form>			
+			
+		</div>
+
+		<!-- FORMULARIO 2 -->
+		<div ng-show="formVisibility2" class="wraper">
+		<h2>Añadir  un contacto</h2>
+		<form action="devolver.php" method="POST">			
+			<label>ID USUARIO: </label><input type="text" name="usuario" placeholder="1234"><br>
+			<label>Id Libro: </label><input type="text" name="libro" placeholder="1234H"><br>
+			<input type="submit" name="Aceptar">
+		</form>
+			
+			
+		</div>
+
+
+
+	</div>
+
+	<script src="js/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/angular.min-1.2.js"></script>
+	<script type="text/javascript" src="js/controllers.js"></script>
+</body>
+</html>
