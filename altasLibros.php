@@ -32,7 +32,15 @@
 		<center><h1>Registrar un libro</h1></center>
 
 		<form name="responder" action="registrar_libro_nuevo.php" method="post"> 
+<<<<<<< HEAD:altasLibros.php
 			
+=======
+
+			<div class="form-group">
+			Id de la editorial : <input type="text" name="id_editorial" required size="15px" id="id_editorial" class="form-control" placeholder="Id de la editorial"> 
+			</div>
+
+>>>>>>> 33739c536e7eef8930a12db9f6f1384932f7666c:altasLibros.html
 			<div class="form-group">
 				Tema:  <br>
 				<select class="form-control" name="temas" id="tema">
@@ -56,6 +64,7 @@
 			</div>
 
 			<div class="form-group">
+<<<<<<< HEAD:altasLibros.php
 					<?php
 						echo '<select class="form-control">';
 						foreach($array_autores as $id => $nombre){
@@ -82,26 +91,33 @@
 
 			<div class="form-group">
 			Nombre: <input type="text" name="nombre" required size="15px" id="nombre" class="form-control" placeholder="Nombre"> 
+=======
+			Ubicación: <input type="text" name="ubicacion" required size="15px" id="id_ubicacion" class="form-control"  placeholder="Ubicación"> 
 			</div>
 
 			<div class="form-group">
-			Volumen: <input type="text" name="volumen" required size="15px" id="volumen" class="form-control">
+			Nombre: <input type="text" name="nombre" required size="15px" id="nombre" class="form-control"  placeholder="Nombre"> 
+>>>>>>> 33739c536e7eef8930a12db9f6f1384932f7666c:altasLibros.html
 			</div>
 
 			<div class="form-group">
-			Edición: <input type="text" name="edicion" required size="15px" id="edicion" class="form-control"> 
+			Volumen: <input type="text" name="volumen" required size="15px" id="volumen" class="form-control"  placeholder="Volumen">
 			</div>
 
 			<div class="form-group">
-			ISSN: <input type="text" name="issn" required size="15px" id="issn" class="form-control"> 
+			Edición: <input type="text" name="edicion" required size="15px" id="edicion" class="form-control"  placeholder="Edición"> 
 			</div>
 
 			<div class="form-group">
-			ISBN: <input type="text" name="isbn" required size="15px" id="isbn" class="form-control"> 
+			ISSN: <input type="text" name="issn" required size="15px" id="issn" class="form-control"  placeholder="ISSN"> 
 			</div>
 
 			<div class="form-group">
-			Numero de Ejemplares: <input type="text" name="ejemplares" required size="15px" id="isbn" class="form-control"> 
+			ISBN: <input type="text" name="isbn" required size="15px" id="isbn" class="form-control"  placeholder="ISBN"> 
+			</div>
+
+			<div class="form-group">
+			Número de Ejemplares: <input type="text" name="ejemplares" required size="15px" id="isbn" class="form-control" placeholder="Número de ejemplares"> 
 			</div>
 
 			<input type="submit" id="enviar" name="enviar" value="Registrar"  class="btn btn-primary"/>  
