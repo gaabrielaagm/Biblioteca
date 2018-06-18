@@ -1,3 +1,15 @@
+<?php
+	session_start();
+	$array_editoriales = $_SESSION["editoriales"];
+	$array_autores = $_SESSION["autores"];
+	/*
+	foreach($array_editoriales as $id => $nombre){
+		echo '<br>';
+		echo $id . " => " . $nombre;
+	}
+	*/
+	
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -43,7 +55,7 @@
         }
     }
 
-
+//registrar_libro_nuevo.php va en el form
 	</script>
 
 
@@ -53,12 +65,20 @@
 		<div class="container">
 		<center><h1>Registrar un libro</h1></center>
 
+<<<<<<< HEAD:altasLibros.html
+		<form name="responder" action="" method="post"> 
+=======
 		<form name="responder" action="registrar_libro_nuevo.php" method="post"> 
+<<<<<<< HEAD:altasLibros.php
+			
+=======
+>>>>>>> 0c702727f2c079c55da0468905c33e37255f5da4:altasLibros.php
 
 			<div class="form-group">
 			Id de la editorial : <input type="text" name="id_editorial" required size="15px" id="id_editorial" class="form-control" placeholder="Id de la editorial"> 
 			</div>
 
+>>>>>>> 33739c536e7eef8930a12db9f6f1384932f7666c:altasLibros.html
 			<div class="form-group">
 				Tema:  <br>
 				<select class="form-control" name="temas" id="tema">
@@ -77,16 +97,45 @@
 
 			<div class="form-group">
 				<select class="form-control" name="id_asignatura">
-					<option ng-repeat="asignatura in asignaturas" value={{asignatura.value}}>{{asignatura.name}}</option>
+					<option ng-repeat="asignatura in asignaturas" value="{{asignatura.value}}">{{asignatura.name}}</option>
 				</select>
 			</div>
 
 			<div class="form-group">
+<<<<<<< HEAD:altasLibros.php
+					<?php
+						echo '<select class="form-control">';
+						foreach($array_autores as $id => $nombre){
+							echo "<option value='$id'>".$nombre."</option>";
+						}
+						echo '</select>';
+					?>			
+			</div>
+
+			<div class="form-group">
+					<?php
+						echo '<select class="form-control">';
+						foreach($array_editoriales as $id => $nombre){
+							echo "<option value='$id'>".$nombre."</option>";
+						}
+						echo '</select>';
+					?>			
+			</div>
+
+			<div class="form-group">
+				<label>Ubicación:</label>
+				<input type="text" name="ubicacion" required size="15px" id="id_ubicacion" class="form-control" placeholder="Ubicacion"> 
+			</div>
+
+			<div class="form-group">
+			Nombre: <input type="text" name="nombre" required size="15px" id="nombre" class="form-control" placeholder="Nombre"> 
+=======
 			Ubicación: <input type="text" name="ubicacion" required size="15px" id="id_ubicacion" class="form-control"  placeholder="Ubicación"> 
 			</div>
 
 			<div class="form-group">
 			Nombre: <input type="text" name="nombre" required size="15px" id="nombre" class="form-control"  placeholder="Nombre"> 
+>>>>>>> 33739c536e7eef8930a12db9f6f1384932f7666c:altasLibros.html
 			</div>
 
 			<div class="form-group">
