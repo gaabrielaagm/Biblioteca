@@ -5,13 +5,45 @@
 	<meta charset="UTF-8">
 	<title>Editorial</title>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"> 
+
+	<script type="text/javascript">
+
+		function validar(){
+        var letras = /^[A-Za-z]+$/;
+        var numeros =  /^[0-9]+$/;
+
+        
+
+        if (document.forms["editor"]["nom_editorial"].value.match(letras)  && 
+            document.forms["editor"]["pais"].value.match(letras) &&
+            document.forms["editor"]["estado"].value.match(letras)  &&
+            document.forms["editor"]["ciudad"].value.match(letras) &&
+            document.forms["editor"]["colonia"].value.match(letras) &&
+            document.forms["editor"]["calle"].value.match(letras) &&
+            document.forms["editor"]["anio_ed"].value.match(numeros) &&
+            document.forms["editor"]["cp"].value.match(numeros)) {
+            return true;
+
+          
+        }else{
+            alert("Todos los campos deben ser caracteres, excepto el Año y Código Postal");
+            return false; 
+        }
+    }
+
+
+
+
+
+	</script>
+
 </head>
 <body >
 
 
  <div class="container">
  	<center><h1> ALTA EDITORIAL</h1></center>
- 	<form action="alta_editorial.php" method="POST">
+ 	<form action="alta_editorial.php" method="POST" name="editor" onsubmit="return validar()">
 	 	<div>
 	 		<div class="form-group">
 		 		<label class="control-label col-md-2">Nombre:</label> 

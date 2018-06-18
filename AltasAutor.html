@@ -25,6 +25,7 @@
           
         }else{
             alert("Llenar todos los campos solo con letras");
+            return false; 
         }
     }
 
@@ -42,7 +43,7 @@
     <br><br>
     <p id=p1></p>
     <div class="container">
-        <form class="form-horizontal" action="altasAutor.php"  method="post" onsubmit="" name="autores">
+        <form class="form-horizontal" action="altasAutor.php"  method="post" onsubmit="return validar()" name="autores">
             <hr>
             <fieldset class="form-group">
                 <!--
@@ -72,7 +73,7 @@
                 </div>	
 
                 <div class="form-group">
-                    <input class="btn btn-primary col-md-offset-8" type="submit" name="aceptar" value="Aceptar" tabindex="10" onclick="validar();">
+                    <input class="btn btn-primary col-md-offset-8" type="submit" name="aceptar" value="Aceptar" tabindex="10">
                 </div>
             </fieldset>
         </form>
