@@ -6,14 +6,43 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"> 
     <title>Dar Alta Autor</title>
+
+
+    <script type="text/javascript">
+        
+    function validar(){
+        var letras = /^[A-Za-z]+$/;
+
+        x=document.forms["autores"]["nombre"].value;
+        y = document.forms["autores"]["apellido"].value;
+        z = document.forms["autores"]["nacion"].value;
+
+        if (document.forms["autores"]["nombre"].value.match(letras)  && 
+            document.forms["autores"]["apellido"].value.match(letras) &&
+            document.forms["autores"]["nacion"].value.match(letras)) {
+            return true;
+
+          
+        }else{
+            alert("Llenar todos los campos solo con letras");
+        }
+    }
+
+
+
+    </script>
+    
+
+
 </head>
 <body>    
     <br><br><br><br><br>
     <center><h1>Alta Autor</h1></center>
     
     <br><br>
+    <p id=p1></p>
     <div class="container">
-        <form class="form-horizontal" action="altasAutor.php"  method="post" onsubmit="">
+        <form class="form-horizontal" action="altasAutor.php"  method="post" onsubmit="" name="autores">
             <hr>
             <fieldset class="form-group">
                 <!--
@@ -25,25 +54,25 @@
                 <div class="form-group">
                     <label for="nombre" class="control-label col-md-4">Nombre(s):</label>				
                     <div class="col-md-5">
-                        <input class="form-control" type="text" name="nombre" id="nombre" placeholder="Nombre" required="required" tabindex="1" accesskey="n">
+                        <input class="form-control" type="text" name="nombre" id="nombre" placeholder="Nombre" required tabindex="1" accesskey="n">
                     </div>
                 </div>
         
                 <div class="form-group">
                     <label for="apePat" class="control-label col-md-4">Apellido(s):</label>
                     <div class="col-md-5">
-                        <input class="form-control" type="text" name="apellido" id="apellido" placeholder="Apellido paterno" required="required" tabindex="2">                        </div>
+                        <input class="form-control" type="text" name="apellido" id="apellido" placeholder="Apellido paterno" required tabindex="2">                        </div>
                     </div>
         
                 <div class="form-group">
                     <label for="nacion" class="control-label col-md-4">Nacionalidad:</label>
                     <div class="col-md-5">
-                        <input class="form-control" type="text" name="nacion" id="nacion" placeholder="Nacionalidad" required="required" tabindex="3">
+                        <input class="form-control" type="text" name="nacion" id="nacion" placeholder="Nacionalidad" required tabindex="3">
                     </div>
                 </div>	
 
                 <div class="form-group">
-                    <input class="btn btn-primary col-md-offset-8" type="submit" name="aceptar" value="Aceptar" tabindex="10">
+                    <input class="btn btn-primary col-md-offset-8" type="submit" name="aceptar" value="Aceptar" tabindex="10" onclick="validar();">
                 </div>
             </fieldset>
         </form>
