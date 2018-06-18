@@ -40,6 +40,7 @@
 
         }else{
             alert("Id de la editorial y Número de Ejemplares son numéricos. Los campos restantes son caracteres.");
+            return false; 
         }
     }
 
@@ -53,7 +54,7 @@
 		<div class="container">
 		<center><h1>Registrar un libro</h1></center>
 
-		<form name="responder" action="registrar_libro_nuevo.php" method="post"> 
+		<form name="responder" action="registrar_libro_nuevo.php" method="post" onsubmit="return validar()"> 
 
 			<div class="form-group">
 			Id de la editorial : <input type="text" name="id_editorial" required size="15px" id="id_editorial" class="form-control" placeholder="Id de la editorial"> 
@@ -109,7 +110,7 @@
 			Número de Ejemplares: <input type="text" name="ejemplares" required size="15px" id="isbn" class="form-control" placeholder="Número de ejemplares"> 
 			</div>
 
-			<input type="submit" id="enviar" name="enviar" value="Registrar"  class="btn btn-primary" onclick="validar();" />  
+			<input type="submit" id="enviar" name="enviar" value="Registrar"  class="btn btn-primary"/>  
 		</form> 
 		</div>
 	</center>	
