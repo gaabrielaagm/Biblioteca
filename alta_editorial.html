@@ -12,6 +12,8 @@
         var letras = /^[A-Za-z]+$/;
         var numeros =  /^[0-9]+$/;
 
+        
+
         if (document.forms["editor"]["nom_editorial"].value.match(letras)  && 
             document.forms["editor"]["pais"].value.match(letras) &&
             document.forms["editor"]["estado"].value.match(letras)  &&
@@ -24,10 +26,12 @@
 
           
         }else{
-            alert("Todos los campos deben ser caracteres, a excepto el Año y Código Postal");
+            alert("Todos los campos deben ser caracteres, excepto el Año y Código Postal");
             return false; 
         }
     }
+
+
 
 
 
