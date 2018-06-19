@@ -4,18 +4,47 @@
 	<meta charset="UTF-8">
 	<title>Prestamo</title>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"> 
+	<style type="text/css">
+		.formularios{
+			align-content: center;
+		}
+	</style>
 </head>
 <body ng-controller="Formularios">
-	<div class="container">
 
-		<nav class="nav nav-pills nav-justified" ">
-		  <a class="nav-link active" ng-click="ShowForm1()"  >Prestamo</a>
-		  <a class="nav-link" href="#" ng-click="ShowForm2()" >Devolución</a>
-		  
-		</nav>
-	
-		<!-- FORMULARIO 1 -->
+
+    <div class="container">
+        <nav class="navbar navbar-inverse navbar-fixed-top" >
+            <div class="container-fluid">
+                <div class="navbar-header">
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav">
+
+                        <li class="active"  style="margin-left: 460px;" >
+                            <a href="" > <!--<img src="" width="40">--> Inicio</a>
+                        </li>
+
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" ng-click="ShowForm1()">  <!--<img src="" width="40">--> Préstamo</a>
+                        </li>
+
+                  
+
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" ng-click="ShowForm2()" data-toggle="dropdown" href="#">  <!--<img src="images/iconos/others.png" width="40">--> Devolución</a>
+                        </li> 
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+   
+<br><br><br>
+		<center>
+			<!-- FORMULARIO 1 col-md-offset-4 col-md-3   -->
 		<div ng-show="formVisibility1" class="wraper">
+<<<<<<< HEAD
 		<h2>PRESTAMO</h2>
 			<form action="prestamos.php" method="POST">
 				<label>Id Usuario: </label><input type="number" min="0"  name="usuario" placeholder="1234" ><br>
@@ -23,6 +52,37 @@
 				<input type="submit" name="Aceptar">
 
 			</form>	<br>	
+=======
+			<div class="col-md-offset-2 col-md-8">
+				<h2>PRÉSTAMO</h2>
+				<legend></legend>
+			</div>
+			
+			<div class="col-md-offset-4 col-md-10">
+				<form action="prestamos.php" method="POST">
+				<div class="form-group">
+					<label class="control-label col-md-2">ID Usuario: </label>
+					<div class="col-md-3">
+						<input type="number" class="form-control" min="0"  name="usuario" placeholder="1234" >
+					</div>
+					
+				</div><br><br>
+					<div class="form-group">
+					<label class="control-label col-md-2">ID Libro: </label>				<div class="col-md-3">
+							<input type="text" name="libro" class="form-control"  placeholder="1234H">
+						</div>
+					
+					</div>
+					<br><br>
+					
+					<div class="col-md-offset-3 col-md-3">
+						<input type="submit" class="btn btn-info" value="Aceptar" name="Aceptar">
+					</div>
+							
+			</form>	
+			</div>
+					
+>>>>>>> 66d8b4a0c11485480a0d5e4c6382ef0cce982c3b
 			
 		</div>
 
@@ -40,6 +100,7 @@
 
 		<!-- FORMULARIO 2 -->
 		<div ng-show="formVisibility2" class="wraper">
+<<<<<<< HEAD
 		<h2>Añadir  un contacto</h2>
 		<form action="devolver.php" method="POST">			
 			<label>ID USUARIO: </label><input type="text" name="usuario" placeholder="1234"><br>
@@ -49,6 +110,39 @@
 		</div>
 	</div>
 
+=======
+			<div class="col-md-offset-2 col-md-8">
+				<h2>DEVOLUCIÓN</h2>
+				<legend></legend>
+			</div>
+			<div class="col-md-offset-4 col-md-10">
+				<form action="devolver.php" method="POST">
+				<div class="form-group">
+					<label class="control-label col-md-2">ID Usuario: </label>
+					<div class="col-md-3">
+						<input type="number" class="form-control" min="0"  name="usuario" placeholder="1234" >
+					</div>
+					
+				</div><br><br>
+					<div class="form-group">
+					<label class="control-label col-md-2">ID Libro: </label>				<div class="col-md-3">
+							<input type="text" name="libro" class="form-control"  placeholder="1234H">
+						</div>
+					
+					</div>
+					<br><br>
+					
+					<div class="col-md-offset-3 col-md-3">
+						<input type="submit" class="btn btn-info" value="Aceptar" name="Aceptar">
+					</div>
+							
+			</form>	
+			</div>
+			
+			
+		</div>
+		</center>	
+>>>>>>> 66d8b4a0c11485480a0d5e4c6382ef0cce982c3b
 
 
 
