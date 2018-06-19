@@ -17,20 +17,41 @@
   	<title>Altas de Libros</title>
   	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<script src="js/functions.js"></script>  
+	<script src="js/functions.js"></script>
+
+
 	<style type="text/css">
 		.form-control{
 			height:35px;  /*alto */
 			width: 300px;  /*ancho*/
 		}
 	</style>
+
+	<script type="text/javascript">
+
+	function validar(){
+		var numeros= /^[0-9]+$/;
+
+		if(!document.forms["responder"]["issn"].value.match(numeros) && !document.forms["responder"]["isbn"].value.match(numeros) && !document.forms["responder"]["ejemplares"].value.match(numeros)){
+			alert("El ISSN, ISBN y No. de Ejemplares deben ser números");
+			return false; 
+
+
+		}else{
+			return true;
+		}
+	}	
+
+	</script>
+
+
 </head>
 <body ng-app ng-controller="cargar">
 	<center>
 		<div class="container">
 		<center><h1>Registrar un libro</h1></center>
 
-		<form name="responder" action="registrar_libro_nuevo.php" method="post"> 
+		<form name="responder" action="registrar_libro_nuevo.php" method="post" onsubmit="return validar()"> 
 			
 			<div class="form-group">
 				Tema:  <br>
