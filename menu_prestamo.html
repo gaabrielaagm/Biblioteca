@@ -44,6 +44,15 @@
 		<center>
 			<!-- FORMULARIO 1 col-md-offset-4 col-md-3   -->
 		<div ng-show="formVisibility1" class="wraper">
+<<<<<<< HEAD
+		<h2>PRESTAMO</h2>
+			<form action="prestamos.php" method="POST">
+				<label>Id Usuario: </label><input type="number" min="0"  name="usuario" placeholder="1234" ><br>
+				<label>Id Libro: </label><input type="text" name="libro" placeholder="1234H"><br>
+				<input type="submit" name="Aceptar">
+
+			</form>	<br>	
+=======
 			<div class="col-md-offset-2 col-md-8">
 				<h2>PRÉSTAMO</h2>
 				<legend></legend>
@@ -73,11 +82,35 @@
 			</form>	
 			</div>
 					
+>>>>>>> 66d8b4a0c11485480a0d5e4c6382ef0cce982c3b
 			
 		</div>
 
+
+		<!--FORMULARIO PARA RENOVAR PRESTAMOS-->
+		<div ng-show="formVisibility1" class="wraper">
+		<h2>Renovar prestamo</h2>
+			<form action="renovar.php" method="POST">
+				
+				<input type="submit" name="renovar" value="Renovar">
+			</form>	<br>	
+		</div>
+
+
+
 		<!-- FORMULARIO 2 -->
 		<div ng-show="formVisibility2" class="wraper">
+<<<<<<< HEAD
+		<h2>Añadir  un contacto</h2>
+		<form action="devolver.php" method="POST">			
+			<label>ID USUARIO: </label><input type="text" name="usuario" placeholder="1234"><br>
+			<label>Id Libro: </label><input type="text" name="libro" placeholder="1234H"><br>
+			<input type="submit" name="Aceptar">
+		</form>	
+		</div>
+	</div>
+
+=======
 			<div class="col-md-offset-2 col-md-8">
 				<h2>DEVOLUCIÓN</h2>
 				<legend></legend>
@@ -109,10 +142,10 @@
 			
 		</div>
 		</center>	
+>>>>>>> 66d8b4a0c11485480a0d5e4c6382ef0cce982c3b
 
 
 
-	</div>
 
 	<script src="js/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>
