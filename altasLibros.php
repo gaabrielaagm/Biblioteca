@@ -1,3 +1,14 @@
+<?php
+	session_start();
+	$array_editoriales = $_SESSION["editoriales"];
+	$array_autores = $_SESSION["autores"];
+	/*
+	foreach($array_editoriales as $id => $nombre){
+		echo '<br>';
+		echo $id . " => " . $nombre;
+	}
+	*/	
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,53 +24,14 @@
 			width: 300px;  /*ancho*/
 		}
 	</style>
-
-
-
-	<script type="text/javascript">
-
-	function validar(){
-        var numeros = /^[0-9]+$/;
-        var letras = /^[A-Za-z]+$/;
-
-       /* x=document.forms["responder"]["id_editorial"].value;
-        y=document.forms["responder"]["ejemplares"].value;
-        
-
-        a=document.forms["responder"]["ubicacion"].value; 
-        b=document.forms["responder"]["nombre"].value;
-        c=document.forms["responder"]["volumen"].value;
-        d=document.forms["responder"]["edicion"].value;
-        e=document.forms["responder"]["issn"].value;
-        f=document.forms["responder"]["isbn"].value;
-		*/
-
-        if (document.forms["responder"]["id_editorial"].value.match(numeros) && document.forms["responder"]["ejemplares"].value.match(numeros) 
-        	&& document.forms["responder"]["ubicacion"].value.match(letras) && document.forms["responder"]["nombre"].value.match(letras) && document.forms["responder"]["volumen"].value.match(letras) && document.forms["responder"]["edicion"].value.match(letras) && document.forms["responder"]["issn"].value.match(letras)){
-            return true;
-
-        }else{
-            alert("Id de la editorial y Número de Ejemplares son numéricos. Los campos restantes son caracteres.");
-            return false; 
-        }
-    }
-
-
-	</script>
-
-
 </head>
 <body ng-app ng-controller="cargar">
 	<center>
 		<div class="container">
 		<center><h1>Registrar un libro</h1></center>
 
-		<form name="responder" action="registrar_libro_nuevo.php" method="post" onsubmit="return validar()"> 
-
-			<div class="form-group">
-			Id de la editorial : <input type="text" name="id_editorial" required size="15px" id="id_editorial" class="form-control" placeholder="Id de la editorial"> 
-			</div>
-
+		<form name="responder" action="registrar_libro_nuevo.php" method="post"> 
+			
 			<div class="form-group">
 				Tema:  <br>
 				<select class="form-control" name="temas" id="tema">
@@ -77,9 +49,32 @@
 			</div>	
 
 			<div class="form-group">
+				Asignatura:
 				<select class="form-control" name="id_asignatura">
-					<option ng-repeat="asignatura in asignaturas" value={{asignatura.value}}>{{asignatura.name}}</option>
+					<option ng-repeat="asignatura in asignaturas" value="{{asignatura.value}}">{{asignatura.name}}</option>
 				</select>
+			</div>
+
+			<div class="form-group">
+				Autor(es):
+					<?php
+						echo '<select class="form-control">';
+						foreach($array_autores as $id => $nombre){
+							echo "<option value='$id'>".$nombre."</option>";
+						}
+						echo '</select>';
+					?>			
+			</div>
+
+			<div class="form-group">
+				Editorial(es):
+					<?php
+						echo '<select class="form-control">';
+						foreach($array_editoriales as $id => $nombre){
+							echo "<option value='$id'>".$nombre."</option>";
+						}
+						echo '</select>';
+					?>			
 			</div>
 
 			<div class="form-group">
