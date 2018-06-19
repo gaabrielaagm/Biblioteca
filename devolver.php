@@ -1,5 +1,6 @@
 <?php
 include 'conexion.php';
+<<<<<<< HEAD
 session_start();
 /*
 Se le pide el ID del  usuario, se checa el ID del libro
@@ -8,13 +9,13 @@ Se le pide el ID del  usuario, se checa el ID del libro
 -si no esta multado pues, se pone solo el libro en D y se actualiza disponible
 Si el libro esta multado, se actualiza disponible se elimina de multa se cambia a D
 -Actualizar la D y eliminar en multa
+=======
+>>>>>>> 952b810eeb38f89e2e0ea4d4eb9dd5f3329aad24
 
--Si hay varias tuplas con el mismo libro prestado se regresa el de la fecha mas antigua
-
-*/
 $id_usr=$_POST["usuario"];
 $id_libro=$_POST["libro"];
 
+<<<<<<< HEAD
 
 $verificar_prestamo = mysqli_query($conexion,"SELECT * FROM prestamo WHERE Id_usuario ='$id_usr' and Id_libro='$id_libro' and Estado='P'");
 	//Si hubo algun resultado registrado con ese prestamo
@@ -185,6 +186,8 @@ $verificar_prestamo = mysqli_query($conexion,"SELECT * FROM prestamo WHERE Id_us
 /*
 
 
+=======
+>>>>>>> 952b810eeb38f89e2e0ea4d4eb9dd5f3329aad24
 $array=array();
 $verificar_prestamo = mysqli_query($conexion,"SELECT Id_libro, Fecha_prestamo FROM prestamo WHERE Id_usuario ='$id_usr' and Id_libro='$id_libro' ");
 if($verificar_prestamo){
@@ -222,5 +225,5 @@ if($verificar_prestamo){
 			  </script>';
 	}
 }
-*/
+
 ?>
