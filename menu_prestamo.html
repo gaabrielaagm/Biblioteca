@@ -21,9 +21,22 @@
 				<label>Id Usuario: </label><input type="number" min="0"  name="usuario" placeholder="1234" ><br>
 				<label>Id Libro: </label><input type="text" name="libro" placeholder="1234H"><br>
 				<input type="submit" name="Aceptar">
-			</form>			
+
+			</form>	<br>	
 			
 		</div>
+
+
+		<!--FORMULARIO PARA RENOVAR PRESTAMOS-->
+		<div ng-show="formVisibility1" class="wraper">
+		<h2>Renovar prestamo</h2>
+			<form action="renovar.php" method="POST">
+				
+				<input type="submit" name="renovar" value="Renovar">
+			</form>	<br>	
+		</div>
+
+
 
 		<!-- FORMULARIO 2 -->
 		<div ng-show="formVisibility2" class="wraper">
@@ -32,14 +45,13 @@
 			<label>ID USUARIO: </label><input type="text" name="usuario" placeholder="1234"><br>
 			<label>Id Libro: </label><input type="text" name="libro" placeholder="1234H"><br>
 			<input type="submit" name="Aceptar">
-		</form>
-			
-			
+		</form>	
 		</div>
-
-
-
 	</div>
+
+
+
+
 
 	<script src="js/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>
