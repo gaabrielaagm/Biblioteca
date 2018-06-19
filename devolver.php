@@ -1,5 +1,6 @@
 <?php
 include 'conexion.php';
+session_start();
 /*
 Se le pide el ID del  usuario, se checa el ID del libro
 -checar que en la tablas de prestamos haya un prestamo correspondiente a ese libro y ese usuario
@@ -18,6 +19,8 @@ $id_libro=$_POST["libro"];
 $verificar_prestamo = mysqli_query($conexion,"SELECT * FROM prestamo WHERE Id_usuario ='$id_usr' and Id_libro='$id_libro' and Estado='P'");
 	//Si hubo algun resultado registrado con ese prestamo
 	if(mysqli_num_rows($verificar_prestamo)>0){
+		$_SESSION["ID_USUARIO"]=$id_usr;
+		$_SESSION["ID_LIBRO"]=$id_libro;
 		//hay una sola tupla con ese prestamo
 		if(mysqli_num_rows($verificar_prestamo)==1){
 			echo("Solo hay un registro<br>");
@@ -35,7 +38,16 @@ $verificar_prestamo = mysqli_query($conexion,"SELECT * FROM prestamo WHERE Id_us
 			//Checamos si el libro prestado no esta en multas 						
 			$verificar_multa = mysqli_query($conexion,"SELECT * FROM multa WHERE Id_prestamo ='$id_prestamo'");
 			if(mysqli_num_rows($verificar_multa)>0){//hubo multa
-				echo("<br>Hay multa<br>");
+				$row=mysqli_fetch_array($verificar_multa);
+				$id_multa=$row["Id_multa"];
+				$_SESSION["ID_MULTA"]=$id_multa;
+				$_SESSION["ID_PRESTAMO"]=$id_prestamo;
+				$_SESSION["TUPLAS"]=1;
+
+				echo("El ID del prestamo es: ".$id_prestamo);
+
+				echo("<br>Hay multa en 1<br>");
+				header('Location: multa.html');
 				//dIRECCIONAR A OTRA PAG
 			}else{
 				echo("<br>No Hay multa<br>");
@@ -82,11 +94,82 @@ $verificar_prestamo = mysqli_query($conexion,"SELECT * FROM prestamo WHERE Id_us
 
 			}
 			$i=0;
-			
+			$fec_vieja="";
+			$id_fec_vieja=0;
 			foreach ($array as $id_prestamo =>$fecha) {
+				if($fec_vieja==""){
+					echo("<br>Entre a dejar algo");
+					$id_fec_vieja=$id_prestamo;
+					$fec_vieja=$fecha;
+				}
 				echo("<br>prestamo:  ".$id_prestamo." = ".$fecha);
-
+					if($fecha<$fec_vieja){
+						$id_fec_vieja=$id_prestamo;
+						$fec_vieja=$fecha;
+					}
+					
 				$i++;
+			}
+			echo ("<br>Fecha vieja es: ".$fec_vieja."<br>Con id: ".$id_fec_vieja);
+			//checar si hay multas
+
+			//Mandar a llamar el procedimiento que agrega si hay alguna multa
+			$checar_multas_proc = mysqli_query($conexion,"call actualizar_multas()");
+			if(!$checar_multas_proc){
+				echo("Error al realizar procedimiento");
+			}
+
+			//Checamos si el libro prestado no esta en multas 						
+			$verificar_multa = mysqli_query($conexion,"SELECT * FROM multa WHERE Id_prestamo ='$id_fec_vieja'");
+			if(mysqli_num_rows($verificar_multa)>0){//hubo multa
+				$row=mysqli_fetch_array($verificar_multa);
+				$id_multa=$row["Id_multa"];
+				$_SESSION["ID_MULTA"]=$id_multa;
+				$_SESSION["ID_PRESTAMO"]=$id_fec_vieja;
+				echo("<br>Hay multa MUCHOS<br>");
+				$_SESSION["TUPLAS"]=2;
+				//Sacar multa más antigua de ese libro madar id
+				//mandar ID prestamo
+
+
+
+				header('Location: multa.html');
+				//dIRECCIONAR A OTRA PAG
+			}else{
+				echo("<br>No Hay multa<br>");
+				//Cambia el estado a P->D 
+				$actualizar_edo = mysqli_query($conexion," UPDATE prestamo SET Estado='D' WHERE Id_prestamo=$id_fec_vieja");
+				if(!$actualizar_edo){
+					echo("Error al actualizar estado");
+				}				
+				//Actualizar exitencias 
+				$libros_disponibles= mysqli_query($conexion,"SELECT * FROM ejemplar WHERE Id_libro = '$id_libro'" );
+				$row=mysqli_fetch_array($libros_disponibles);
+				$libros_disponibles=$row["Disponibles"];
+				echo("<br>Diponibles antes: ".$libros_disponibles."<br>");
+
+				$libros_disponibles=($libros_disponibles)+1;
+				echo("<br>Diponibles despues: ".$libros_disponibles."<br>");
+			 	 $res1=mysqli_query($conexion,"UPDATE ejemplar SET Disponibles= $libros_disponibles WHERE Id_libro='$id_libro'");
+			  	$libros_prestados= mysqli_query($conexion,"SELECT * FROM ejemplar WHERE Id_libro = '$id_libro'" );
+			  	$row=mysqli_fetch_array($libros_prestados);
+			  	$libros_prestados=$row["Prestados"];
+			  	echo("<br>Prestados antes: ".$libros_prestados."<br>");
+			  	$libros_prestados=($libros_prestados)-1;
+			  	echo("<br>Prestados despues: ".$libros_prestados."<br>");
+			  	$res2=mysqli_query($conexion,"UPDATE ejemplar SET Prestados= $libros_prestados WHERE Id_libro='$id_libro'");
+
+
+			  	if($res1 and $libros_prestados and $res2){
+					  	echo '<script>
+				  	alert("Actualizados los disponibles etc");
+				  	</script>';
+			  	}else{
+			  		echo '<script>
+				  	alert("Error al actualizar diponibles");
+				  	</script>';
+			  }
+
 			}
 		}
 
