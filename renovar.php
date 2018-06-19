@@ -1,6 +1,6 @@
 <?php
-
 include 'conexion.php';
+
 $id_usr=$_POST["usuario"];
 $id_libro=$_POST["libro"];
 
@@ -11,7 +11,8 @@ $verificar_libro= mysqli_query($conexion,"SELECT * FROM libro WHERE Id_libro = '
 $prestamo= mysqli_query($conexion,"SELECT * FROM prestamo WHERE Id_libro = '$id_libro'" );
 
 $row=mysqli_fetch_array($prestamo);
-$prestamo=$row["Disponibles"];
+$prestamo=$row["Id_libro"];
+
 echo("Prestamo: ".$prestamo);
 
 
@@ -21,10 +22,6 @@ if($prestamo>0){
 		while($row=mysqli_fetch_assoc($prestamo)){
 			echo "Id prestamo: " .$row["Id_prestamo"]. " Id libro: " .$row["Id_libro"]. " Id usuario: " .$row["Id_usuario"]. "Fecha prestamo: " .$row["Fecha_prestamo"]. "Fecha devolucion: " .$row["Fecha_devolucion"]. " Estado: " .$row["Estado"]. "<br>";
 		}
-
-
-
-
 
 	}else{
 		echo '<script>
