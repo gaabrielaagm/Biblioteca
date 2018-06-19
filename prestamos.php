@@ -10,7 +10,7 @@ $verificar_libro= mysqli_query($conexion,"SELECT * FROM libro WHERE Id_libro = '
 $libros_disponibles= mysqli_query($conexion,"SELECT * FROM ejemplar WHERE Id_libro = '$id_libro'" );
 $row=mysqli_fetch_array($libros_disponibles);
 $libros_disponibles=$row["Disponibles"];
-echo("Disponibles: ".$libros_disponibles);
+echo("Disponibles: ".$libros_disponibles."<br>");
 
 //curdate()
 if($libros_disponibles>0){
@@ -35,17 +35,19 @@ if($libros_disponibles>0){
 			  $libros_prestados= mysqli_query($conexion,"SELECT * FROM ejemplar WHERE Id_libro = '$id_libro'" );
 			  $row=mysqli_fetch_array($libros_prestados);
 			  $libros_prestados=$row["Prestados"];
-			  echo("Prestados".$libros_prestados);
+			  echo("<br>Prestados".$libros_prestados."<br>");
 			  $libros_prestados=($libros_prestados)+1;
 			  $res2=mysqli_query($conexion,"UPDATE ejemplar SET Prestados= $libros_prestados WHERE Id_libro='$id_libro'");
 
 
 			  if($res1 and $libros_prestados and $res2){
 				  	echo '<script>
-				  alert("Atualizados los disponibles etc");
+				  alert("Actualizados los disponibles");
 				  </script>';
 			  }else{
-
+			  	echo '<script>
+				  alert("Error en actualizar disponibles");
+				  </script>';
 			  }
 
 			  
