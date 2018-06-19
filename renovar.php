@@ -1,6 +1,6 @@
 <?php
-
 include 'conexion.php';
+
 $id_usr=$_POST["usuario"];
 $id_libro=$_POST["libro"];
 
@@ -11,7 +11,7 @@ $verificar_libro= mysqli_query($conexion,"SELECT * FROM libro WHERE Id_libro = '
 $prestamo= mysqli_query($conexion,"SELECT * FROM prestamo WHERE Id_libro = '$id_libro'" );
 
 $row=mysqli_fetch_array($prestamo);
-$prestamo=$row["Prestados"];
+$prestamo=$row["Id_libro"];
 
 echo("Prestamo: ".$prestamo);
 
